@@ -7,6 +7,7 @@ to add functionality to your application.
 
 Getting Started
 Npm install, express and express handlebars is required
+add in my videos folder into the public folder and install my database
 
 License
 This is mine
