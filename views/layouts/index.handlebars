@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>{{ title }}</title>
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
+	<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.15/dist/vue.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>	
+	<script src="/dist/vue-custom-element.min.js"></script>
+	<!-- <script src="/dist/vue-social-sharing.min.js"></script> -->
+</head>
+<body>
+
+	<div id="app">
+		<header>
+			<div class="header-wrapper">
+				<img src="/images/roku.svg" alt="Roku logo" width="90"><span>FlashBack Videos</span>
+			</div>
+			<nav>
+				<ul>
+					<li><i class="fas fa-user-circle"></i></li>
+					<li><i class="fas fa-cog"></i></li>
+				</ul>
+			</nav>
+		</header>
+
+		<main>
+			{{{ body }}}
+		</main>
+
+		<footer>
+			
+<!-- 		<social-sharing url="https://vuejs.org/" inline-template>
+		  <div>
+		  	<ul>
+	  		<li>
+		      <network network="facebook">
+		        <i class="fa fa-fw fab fa-facebook"></i>
+		      </network>
+		 	 </li>
+
+		 	 <li>
+		      <network network="twitter">
+		        <i class="fa fa-fw fab fa-twitter"></i>
+		      </network>
+		  </li>
+			</ul>
+		   </div>
+		</social-sharing> -->
+		
+		<p class="copy">
+				&copy; 2018 
+		</p>
+		</footer>
+	</div>
+	  <script>
+	    var appData = {
+	      movies : {{{ data }}}
+	    }
+
+	  </script>
+
+		{{#if mainpage}}
+	  	<script src="/js/main.js"></script>
+		{{/if}}
+
+		{{#if videopage}}
+			<script src="/js/videoVM.js"></script>
+		{{/if}}
+</body>
+</html>

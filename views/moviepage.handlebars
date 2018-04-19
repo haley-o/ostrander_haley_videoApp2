@@ -1,0 +1,74 @@
+<script src="/dist/vue-social-sharing.min.js"></script>
+
+<!-- <div id="app"> -->
+
+<section id="video">
+  <!-- back button here -->
+  <a href="/" class="back-button">
+    <i class="far fa-arrow-alt-circle-left"></i>
+  </a>
+  <video autoplay controls>
+    <!-- remember to add all of the fallback sources here. -->
+    <source src="/video/{{ moviesrc }}" type="video/mp4">
+  </video>
+
+  <!-- reviews go here -->
+  <article class="comments" v-if="reviews.length > 0">
+    <div v-for="review in reviews">
+      <!-- temporary vue component -->
+        <review-stars :value="review.comments_rating" :disabled="true"></review-stars>
+      <!-- end component -->
+      <h3>
+       ${ review.comments_name }
+      </h3>
+
+      <i class="post-date">${ review.comments_date }</i>
+
+      <p>
+        ${ review.comments_copy }
+      </p>
+    </div>
+  </article>
+
+  <!-- aside => add our own reviews -->
+  <aside ref="form" class="add-comment" :class="{ floatRight : reviews.length > 0 }">
+    <h4 class="review-heading">Add a Review</h4>
+    <span class="hidden movId">{{ movie }}</span>
+
+    <review-stars v-model="numStars" :disabled="false"></review-stars>
+
+    <h3>Name:</h3>
+    <input class="namecon" name="myName" placeholder="name here" v-model="name"></input>
+
+    <textarea name="review" id="review" placeholder="What did you think?" v-model="review"></textarea>
+    <input type="submit" value="Submit your review!" v-on:click="addReview">
+  </aside>
+
+  <div id="app">
+<social-sharing url="https://www.facebook.com/sharer/sharer.php?u=" title="Wow Check out this awesome movie I'm watching"
+                      description="Intuitive, Fast and Composable MVVM for building interactive interfaces."
+                      quote="Wow Check out this awesome movie I'm watching"
+                      inline-template>
+  <div>
+    <ul>
+    <li>
+      <!-- <network network="facebook"> -->
+        <!-- <i class="fa fa-fw fab fa-facebook"></i> -->
+        <a href="https://www.facebook.com/sharer/sharer.php?u=" target="_blank"><i class="fa fa-fw fab fa-facebook"></i><p class="share-text">Share on Facebook</p></a>
+      <!-- </network> -->
+   </li>
+
+   <li>
+      <!-- <network network="twitter"> -->
+        <!-- <i class="fa fa-fw fab fa-twitter"></i> -->
+        <!-- <a href="https://twitter.com/home?status=" target="_blank" ><i class="fa fa-fw fab fa-twitter"></i> Twitter</a> -->
+        <a href="https://twitter.com/intent/tweet?text=Check%20This%20Out" target="_blank"><i class="twitter-share-button fa fa-fw fab fa-twitter"></i><p class="share-text">Share on Twitter</p></a>
+      <!-- </network> -->
+  </li>
+  </ul>
+   </div>
+</social-sharing>
+
+</div>
+</section>
+
