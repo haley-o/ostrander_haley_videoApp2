@@ -12,6 +12,15 @@
     <source src="/video/{{ moviesrc }}" type="video/mp4">
   </video>
 
+  <div class="detailsBox">
+    <div class="detailsInfo">
+      <h2>{{moviesData.movies_title}}</h2>
+      <h3 class="genre">{{moviesData.movies_genre}}</h3>
+      <p class="date">{{moviesData.movies_year}}</p>
+      <p>{{moviesData.movies_storyline}}</p>
+    </div>
+  </div>
+
   <!-- reviews go here -->
   <article class="comments" v-if="reviews.length > 0">
     <div v-for="review in reviews">
@@ -44,11 +53,11 @@
     <input type="submit" value="Submit your review!" v-on:click="addReview">
   </aside>
 
-  <div id="app">
-<social-sharing url="https://www.facebook.com/sharer/sharer.php?u=" title="Wow Check out this awesome movie I'm watching"
+  <!-- <div id="app"> -->
+<!-- <social-sharing url="https://www.facebook.com/sharer/sharer.php?u=" title="Wow Check out this awesome movie I'm watching"
                       description="Intuitive, Fast and Composable MVVM for building interactive interfaces."
                       quote="Wow Check out this awesome movie I'm watching"
-                      inline-template>
+                      inline-template> -->
   <div>
     <ul>
     <li>
@@ -67,7 +76,7 @@
   </li>
   </ul>
    </div>
-</social-sharing>
+<!-- </social-sharing> -->
 
 </div>
 </section>

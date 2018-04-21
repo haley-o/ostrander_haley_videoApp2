@@ -40,7 +40,7 @@ const myApp = {
 
 // Vue.use(SocialSharing);
 
-myApp.movieGenres(appData.movies, ["Family", "Action", "Fantasy"]);
+myApp.movieGenres(appData.movies, ["Family", "Action", "Fantasy", "Horror"]);
 
 // new Vue({
 //   data: {

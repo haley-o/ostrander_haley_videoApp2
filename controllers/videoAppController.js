@@ -38,9 +38,12 @@ exports.get_one_movie = (req, res) => {
       return console.log(err.message);
     }
 
+    let movie = `SELECT movies_id, movies_title, movies_storyline, movies_year FROM tbl_movies WHERE movies_id = "${req.params.id}"`;
+
     let query = `SELECT * FROM tbl_comments WHERE comments_movie = "${req.params.id}"`;
 
     connect.query(query, (err, rows) => {
+    connect.query(movie, (err, movRows) => {
       connection.release(); // let somebody else use this connection
 
       if (err) {
@@ -52,13 +55,17 @@ exports.get_one_movie = (req, res) => {
       res.render('moviepage', {
         movie : req.params.id,
         moviesrc : req.params.movie,
-        data : JSON.stringify(rows),
+        comD : JSON.stringify(rows),
+        data : JSON.stringify(movRows),
+        moviesData : movRows[0],
         mainpage : false,
         videopage : true
       });
     })
+    })
   })
 };
+
 
 exports.post_new_review = (req, res) => {
   console.log('hit post review route');

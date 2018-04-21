@@ -39,6 +39,7 @@ var myVideoApp = {
 
     data : {
       reviews : [],
+      movies : [],
       numStars : 0,
       review : "",
       name : ""
